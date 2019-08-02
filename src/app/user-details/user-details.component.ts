@@ -14,7 +14,7 @@ export class UserDetailsComponent implements OnInit{
 
   }
   ngOnInit(){
-    this.http.get('https://test-7ad23.firebaseio.com/').subscribe((storedData)=>{
+    this.http.get('https://test-7ad23.firebaseio.com/data.json').subscribe((storedData)=>{
       console.log(storedData);
     })
 
@@ -22,7 +22,7 @@ export class UserDetailsComponent implements OnInit{
   onSubmit(form:NgForm){
     console.log(form.value)
     this.arr.push(form.value);
-    this.http.post('https://test-7ad23.firebaseio.com/',this.arr).subscribe((responseData)=>{
+    this.http.put('https://test-7ad23.firebaseio.com/data.json',this.arr).subscribe((responseData)=>{
      console.log(responseData);
     })
 
