@@ -32,6 +32,8 @@ export class UserDetailsComponent implements OnInit{
     })
 
   }
+
+  
   onSubmit(form:NgForm){
     console.log(form.value)
     this.arr.push(form.value);
