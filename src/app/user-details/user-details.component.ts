@@ -11,6 +11,8 @@ import{map} from 'rxjs/operators';
 export class UserDetailsComponent implements OnInit{
   arr=[];
   ide="data.json";
+  num="1";
+  stat=true;
 
   constructor(private http:HttpClient){
 
@@ -33,10 +35,31 @@ export class UserDetailsComponent implements OnInit{
     })
 
   }
+  validate(f:NgForm){
+    console.log(f.value.userData.number);
+    console.log(f.value.userData.email);
+
+
+  if(f.value.userData.email!='')
+    {
+      console.log("in if2");
+
+      this.stat=false;
+    }
+     if(f.value.userData.number!=null && Number(f.value.userData.number)>1) 
+    {
+      console.log("in if1");
+      this.stat=false;
+    }
+
+  }
 
   
   onSubmit(form:NgForm){
-    console.log(form.value)
+    console.log(form.value.userData.email);
+    console.log(this.num);
+
+    
     this.arr.push(form.value);
     this.http.put('https://test-7ad23.firebaseio.com/data.json',this.arr).subscribe((responseData)=>{
      console.log(responseData);

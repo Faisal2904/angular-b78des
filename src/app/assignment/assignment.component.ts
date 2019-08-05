@@ -10,6 +10,7 @@ export class AssignmentComponent implements OnInit{
   count=0;
   array=[];
   @ViewChild('ref') xyz:ElementRef;
+  stat=true;
 
   ngOnInit(){
     console.log(this.xyz.nativeElement.value);

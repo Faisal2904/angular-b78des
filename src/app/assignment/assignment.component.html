@@ -7,4 +7,4 @@
 <label for="orderNumber">Order Number</label>
 <input type="number" name="orderNumber"  #ref>
 
-<button class='btn btn-primary' (click)="onShow()">Show details</button>
+<button class='btn btn-primary' (click)="onShow()" [disabled]="stat">Show details</button>
