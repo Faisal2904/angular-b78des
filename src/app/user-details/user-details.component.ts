@@ -13,6 +13,8 @@ export class UserDetailsComponent implements OnInit{
   ide="data.json";
   num="1";
   stat=true;
+  errorMessage="";
+  genders=['male','female']
 
   constructor(private http:HttpClient){
 
@@ -45,6 +47,7 @@ export class UserDetailsComponent implements OnInit{
       console.log("in if2");
 
       this.stat=false;
+      this.errorMessage="hello my by";
     }
      if(f.value.userData.number!=null && Number(f.value.userData.number)>1) 
     {
